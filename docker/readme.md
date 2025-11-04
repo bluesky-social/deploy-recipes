@@ -92,22 +92,22 @@ services:
   pds:
     container_name: pds
     image: ghcr.io/bluesky-social/pds:latest
-	restart: unless-stopped
-	volumes:
-	  - "./data:data"
-	env_file:
-	  - "./pds.env"
-	ports:
-	  - "3000:3000"
-	labels:
-	  - "com.centurylinklabs.watchtower.enable=true"
+    restart: unless-stopped
+    volumes:
+      - "./data:data"
+    env_file:
+      - "./pds.env"
+    ports:
+      - "3000:3000"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
   watchtower:
     container_name: watchtower
     image: containrrr/watchtower
-	restart: unless-stopped
+    restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-	command: --label-enable
+    command: --label-enable
 ```
 
 ## Step 3: Configure reverse proxy

@@ -1,0 +1,13 @@
+[Unit]
+Description=Bluesky Personal Data Server service
+Before=caddy.service
+
+[Container]
+Label=app=pds
+Image=ghcr.io/bluesky-social/pds:0.4
+AutoUpdate=registry
+Pod=pds.pod
+EnvironmentFile=/opt/pds/pds.env
+
+[Install]
+WantedBy=multi-user.target default.target

@@ -1,0 +1,20 @@
+{
+	email myemail@example.com
+	on_demand_tls {
+		ask http://localhost:3000/tls-check
+	}
+	log default {
+		output stdout
+		exclude http.log.access
+	}
+}
+
+# PDS
+*.at.example.com, at.example.com {
+	tls {
+		on_demand
+	}
+	reverse_proxy http://localhost:3000
+}
+
+...

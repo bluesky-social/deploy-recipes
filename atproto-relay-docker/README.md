@@ -38,7 +38,7 @@ git clone git@github.com:bluesky-social/indigo.git
 There is an ``.env.example`` file that you'll need to rename and fill in the information for.
 
 ```bash
-mv .env.example .env
+cp .env.example .env
 ```
 
 Then in your favourite text editor, open the ``.env`` file, we'll walk through what each variable does. For a full list of the available configurable environment variables, [head over to the indigo repository](https://github.com/bluesky-social/indigo/blob/main/cmd/relay/main.go#L48).

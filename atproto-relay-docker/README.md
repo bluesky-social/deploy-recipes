@@ -18,7 +18,7 @@ Way more than what I need but only costs about $24 CAD a month.
 
 # Setup
 
-Once you have your machine ready to go the setup is relatively straightforward. Make sure to have ``shuf`` and ``parallel`` installed on your machine since it'll be needed for the last couple of steps.
+Once you have your machine ready to go the setup is relatively straightforward.
 
 To start, clone the example setup from Tangled and change directory into the ``relay-docker`` project.
 
@@ -35,7 +35,7 @@ git clone git@github.com:bluesky-social/indigo.git
 
 ## Environment Variables
 
-There is an ``.env.example`` file that you'll need to rename and fill in the information for.
+There is an ``.env.example`` file that you'll need to rename and values to the variables within that file.
 
 ```bash
 cp .env.example .env
@@ -47,7 +47,7 @@ Then in your favourite text editor, open the ``.env`` file, we'll walk through w
 
 ``RELAY_REPLAY_WINDOW`` - The duration of output "backfill window", eg 24h. Basically how much data the Relay stores and for how long. ``48h`` is what I have mine set as and it takes up about 200-300GB of disk space.
 
-``RELAY_PERSIST_DIR`` - Where on the host machine the data is persisted. You can decide where but I've left it as ``/data/relay/persist``. 
+``RELAY_PERSIST_DIR`` - Where on the host machine the data is persisted. You can decide where you want this to be but I've left it as ``/data/relay/persist``. 
 
 ``RELAY_ADMIN_PASSWORD`` - this is the admin password you'll use to log in to the relay admin dashboard. Make sure to set something secure and save it somewhere safe.
 
@@ -85,24 +85,24 @@ yourdomain.com {
 }
 ```
 
-If you decide to stay with Caddy there are just a few things you need to update. Open the ``Caddyfile`` inside of ``conf/`` directory and make these changes.
+Open the ``Caddyfile`` inside of the ``conf/`` directory and make these changes.
 
 Replace all occurances of "yourdomain.com" with the actual domain you want your relay to be reachable at and then save the file.
 
 > [!NOTE]
-> For the ``header_up Origin "yourdomain.com"`` line make sure to keep the quotes when replacing the domain name with your actual domain name.
+> Caddy users: For the ``header_up Origin "yourdomain.com"`` line make sure to keep the quotes when replacing the domain name with your actual domain name.
 
-That should be all the set up to get the relay at least running, so the next step would be to run ``docker compose``. You'll want to be in the ``relay-docker`` directory.
+That should be all the set up to get the relay at least running, so the next step would be to run ``docker compose``. You'll want to be inside of the ``relay-docker`` directory.
 
 ```bash
 docker compose up -d
 ```
 
-You can verify that it is running by going to the domain in your browser.
+You can verify that it is running by going to your domain in your browser.
 
 ## Bootstrapping Host List
 
-**Prerequisite**
+Now that you have the Relay running in the container, you'll want to install a few more scripts on the host machine to help with connecting PDSes to your relay.
 
 - Install ``goat``: https://github.com/bluesky-social/goat
 - Install ``shuf``: https://linux.die.net/man/1/shuf
@@ -144,4 +144,4 @@ This may take a while to complete but once it's done you should be able to see a
 # What to be aware of
 
 - Running a relay is fairly low maintenance, just check on it every so often but you shouldn't need to do anything after setting it up.
-- Log in to your dashboard every so often and bump the repo limit for non-bluesky PDSes that you trust so they don't get throttled.
+- Log in to your dashboard once or twice a week and bump the repo limit for non-bluesky PDSes that you trust that are reaching the repo limit to prevent them from being throttled by your relay. By default the repo limit for non-trusted PDSes is 100.

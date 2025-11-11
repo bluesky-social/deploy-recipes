@@ -67,7 +67,7 @@ Then you'll need to set up your environment variables for the database.
 
 ## Proxy
 
-This relay setup uses Caddy, but you can use whatever you like. Just make sure the settings match this.
+The relay is designed to be run behind a [Reverse Proxy](https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-reverse-proxy-on-ubuntu-22-04#introduction) to manage web ingress. This relay setup uses Caddy, but you can use Nginx or another option, following these Caddy settings:
 
 ```bash
 yourdomain.com {

@@ -3,6 +3,10 @@
 The primary goal of this deployment is to use Podman Quadlets, ensuring that
 `systemctl` and similar tooling can properly read the state of the service.
 
+## Requirements
+
+- Podman 4.4 or greater
+
 ## How to deploy
 
 Place `pds.container`, `pds.pod`, and `pds.volume` wherever your server looks

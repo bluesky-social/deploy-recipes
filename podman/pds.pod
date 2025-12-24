@@ -1,3 +1,5 @@
 [Pod]
 Volume=pds.volume:/pds
-PublishPort=3000:3000
+PublishPort=127.0.0.1:3000:3000 
+# if you map 3000:3000 instead of 127.0.0.1:3000:3000
+# the PDS will be accessible without the reverse proxy. You probably don't want that!

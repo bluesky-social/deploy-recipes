@@ -3,18 +3,14 @@
 	on_demand_tls {
 		ask http://localhost:3000/tls-check
 	}
-	log default {
-		output stdout
-		exclude http.log.access
-	}
 }
 
 # PDS
-*.at.example.com, at.example.com {
+*.pds.example.com, pds.example.com {
 	tls {
 		on_demand
 	}
 	reverse_proxy http://localhost:3000
 }
-
+# Anything else for your server
 ...

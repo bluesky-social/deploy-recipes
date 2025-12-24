@@ -1,0 +1,3 @@
+[submodule "pdsinit"]
+	path = pdsinit
+	url = https://gitea.moe/lamp/pdsinit

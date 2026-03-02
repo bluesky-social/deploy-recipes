@@ -9,7 +9,7 @@ See [Bryan's writeup for the kind of hardware you'll need for this](https://whtw
 
 A relay that's non-archival can usually run pretty efficiently on commodity hardware. For CPU and RAM, it can run fine on about 2-4 CPU cores and 4 GB of RAM. For bandwidth you'll need at least a 200 Mbps unmetered connection.
 
-Disk space will greatly depend on the backfill window you set and also depends on the network traffic for that window. A 48h backfill window can take up around 200-400GB of disk space.
+Disk space will greatly depend on the backfill window you set and also depends on the network traffic for that window. A 48h backfill window can take up around 200-400GB of disk space. It is recommended to have a fast disk, so look out for hardware setups that offer an SSD or something similar.
 
 # Setup
 
@@ -112,7 +112,7 @@ To increase the new hosts per day limit, go to your relay dashboard at ``yourdom
 
 The "Access Token" would be your ``RELAY_ADMIN_PASSWORD`` that you set earlier in your ``.env`` file.
 
-Once you're logged in, in the top right you should see an input that says "50 PDS/day". Change that number 50 to something really large temporarily and click update.
+Once you're logged in, in the top right you should see an input that says "50 PDS/day". Change the number in the input to something really large temporarily and click update.
 
 ![a dashboard view of all the personal data servers a relay is connected to](relay-dashboard-pds-list.png)
 
